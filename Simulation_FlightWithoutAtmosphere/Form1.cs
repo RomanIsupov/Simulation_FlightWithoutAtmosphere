@@ -36,6 +36,7 @@ namespace Simulation_FlightWithoutAtmosphere
                 timer1.Start();
                 return;
             }
+
             alpha = (double)edAngle.Value;
             v0 = (double)edSpeed.Value;
             y0 = (double)edHeight.Value;
@@ -67,6 +68,7 @@ namespace Simulation_FlightWithoutAtmosphere
         private void timer1_Tick(object sender, EventArgs e)
         {
             t += dt;
+            labTime.Text = $"Time: {Math.Round(t, 2)} s";
             x = v0 * Math.Cos(alpha * Math.PI / 180) * t;
             y = y0 + v0 * Math.Sin(alpha * Math.PI / 180) * t - g * t * t / 2;
             chart1.Series[0].Points.AddXY(x, y);

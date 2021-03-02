@@ -30,8 +30,8 @@ namespace Simulation_FlightWithoutAtmosphere
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btStart = new System.Windows.Forms.Button();
             this.edHeight = new System.Windows.Forms.NumericUpDown();
@@ -43,6 +43,7 @@ namespace Simulation_FlightWithoutAtmosphere
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btPause = new System.Windows.Forms.Button();
+            this.labTime = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.edHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edSpeed)).BeginInit();
@@ -52,6 +53,7 @@ namespace Simulation_FlightWithoutAtmosphere
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labTime);
             this.panel1.Controls.Add(this.btPause);
             this.panel1.Controls.Add(this.btStart);
             this.panel1.Controls.Add(this.edHeight);
@@ -137,20 +139,20 @@ namespace Simulation_FlightWithoutAtmosphere
             // 
             // chart1
             // 
-            chartArea1.AxisX.Maximum = 25D;
-            chartArea1.AxisX.Minimum = 0D;
-            chartArea1.AxisY.Maximum = 6D;
-            chartArea1.AxisY.Minimum = 0D;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea3.AxisX.Maximum = 25D;
+            chartArea3.AxisX.Minimum = 0D;
+            chartArea3.AxisY.Maximum = 6D;
+            chartArea3.AxisY.Minimum = 0D;
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart1.Location = new System.Drawing.Point(0, 100);
             this.chart1.Name = "chart1";
-            series1.BorderWidth = 3;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(800, 350);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -170,6 +172,16 @@ namespace Simulation_FlightWithoutAtmosphere
             this.btPause.Text = "Пауза";
             this.btPause.UseVisualStyleBackColor = true;
             this.btPause.Click += new System.EventHandler(this.btPause_Click);
+            // 
+            // labTime
+            // 
+            this.labTime.AutoSize = true;
+            this.labTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labTime.Location = new System.Drawing.Point(205, 74);
+            this.labTime.Name = "labTime";
+            this.labTime.Size = new System.Drawing.Size(91, 16);
+            this.labTime.TabIndex = 8;
+            this.labTime.Text = "Time: 0.00 s";
             // 
             // Form1
             // 
@@ -203,6 +215,7 @@ namespace Simulation_FlightWithoutAtmosphere
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btPause;
+        private System.Windows.Forms.Label labTime;
     }
 }
 
