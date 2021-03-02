@@ -17,6 +17,8 @@ namespace Simulation_FlightWithoutAtmosphere
             InitializeComponent();
         }
 
+        private bool isStarted = false;
+
         const double dt = 0.01;
         const double g = 9.81;
 
@@ -29,6 +31,11 @@ namespace Simulation_FlightWithoutAtmosphere
         double y;
         private void btStart_Click(object sender, EventArgs e)
         {
+            if (isStarted)
+            {
+                timer1.Start();
+                return;
+            }
             alpha = (double)edAngle.Value;
             v0 = (double)edSpeed.Value;
             y0 = (double)edHeight.Value;
@@ -53,6 +60,7 @@ namespace Simulation_FlightWithoutAtmosphere
             chart1.Series[0].Points.Clear();
             chart1.Series[0].Points.AddXY(x, y);
 
+            isStarted = true;
             timer1.Start();
         }
 
@@ -62,7 +70,19 @@ namespace Simulation_FlightWithoutAtmosphere
             x = v0 * Math.Cos(alpha * Math.PI / 180) * t;
             y = y0 + v0 * Math.Sin(alpha * Math.PI / 180) * t - g * t * t / 2;
             chart1.Series[0].Points.AddXY(x, y);
-            if (y <= 0) timer1.Stop();
+            if (y <= 0)
+            {
+                timer1.Stop();
+                isStarted = false;
+            }
+        }
+
+        private void btPause_Click(object sender, EventArgs e)
+        {
+            if (timer1.Enabled)
+            {
+                timer1.Stop();
+            }
         }
     }
 }
